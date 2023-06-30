@@ -1,15 +1,94 @@
-@import-normalize; /* bring in normalize.css styles */
-
 body {
-  margin: 0;
+  margin-top: 12.5%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #409d8e, #0093da, #ad57d1);
+}
+
+li {
+  list-style: none;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.flexator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.g-20 {
+  gap: 20px;
+}
+.all-pos {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  font-size: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  width: 700px;
+  height: 500px;
+  box-shadow: 0 0 2px 2px black;
+  border-radius: 15px;
+}
+
+.scrollable-list {
+  height: 180px;
+  overflow-y: scroll;
+}
+
+.listContacts {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-contact {
+  display: flex;
+  align-items: center;
+}
+
+.area-for-enter {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.bin {
+  width: 24px;
+  height: 24px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+.li-con {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 8px;
+  width: 400px;
+  height: 30px;
+}
+.li-contacts {
+  width: 450px;
 }
