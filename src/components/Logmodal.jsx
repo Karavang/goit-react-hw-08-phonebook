@@ -1,4 +1,6 @@
 import React from 'react';
+import Login from './Login';
+import Registration from './Registration';
 
 export default function Logmodal() {
   return (
@@ -40,7 +42,7 @@ export default function Logmodal() {
           role="tabpanel"
           aria-labelledby="home-tab"
         >
-          ...
+          <Login />
         </div>
         <div
           className="tab-pane fade"
@@ -48,7 +50,7 @@ export default function Logmodal() {
           role="tabpanel"
           aria-labelledby="profile-tab"
         >
-          ...
+          <Registration />
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
 import Phonebook from 'components/App';
-
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
