@@ -50,6 +50,7 @@ export default function Logmodal() {
           role="tabpanel"
           aria-labelledby="profile-tab"
         >
+          <h2 className="area-for-enter">Registration</h2>
           <Registration />
         </div>
       </div>
