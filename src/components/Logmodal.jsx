@@ -35,9 +35,9 @@ export default function Logmodal() {
           </button>
         </li>
       </ul>
-      <div className="tab-content" id="myTabContent">
+      <div className="tab-content flexator" id="myTabContent">
         <div
-          className="tab-pane fade show active"
+          className="tab-pane fade show active flexator"
           id="home"
           role="tabpanel"
           aria-labelledby="home-tab"
@@ -45,7 +45,7 @@ export default function Logmodal() {
           <Login />
         </div>
         <div
-          className="tab-pane fade"
+          className="tab-pane fade flexator"
           id="profile"
           role="tabpanel"
           aria-labelledby="profile-tab"
