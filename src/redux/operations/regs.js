@@ -3,6 +3,12 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
+const authed = token => {
+  axios.defaults.headers.common.Authorization = `bearer ${token}`;
+};
+const cleared = token => {
+  axios.defaults.headers.common.Authorization = ``;
+};
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
@@ -29,6 +35,13 @@ export const authSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(register.pending, (state, action) => state)
-      .addCase(register.fulfilled, (state, action) => state)
+      .addCase(register.fulfilled, (state, action) => {
+        console.log(action);
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLogged = true;
+        console.log(state);
+      })
       .addCase(register.rejected, (state, action) => state),
 });
+export const getIsLogged = state => console.log(state);

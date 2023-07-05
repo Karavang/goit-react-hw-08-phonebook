@@ -8,7 +8,11 @@ export default function Registration() {
     e.preventDefault();
     const form = e.currentTarget;
     console.log(form);
-    console.log(form.elements.name.value);
+    console.log({
+      name: form.elements.name.value,
+      email: form.elements.email.value,
+      password: form.elements.password.value,
+    });
     dispatch(
       register({
         name: form.elements.name.value,

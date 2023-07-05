@@ -1,17 +1,17 @@
+import { useDispatch } from 'react-redux';
 import List from './ContactList';
 import Filter from './Filter';
 import Form from './Form';
 import Logmodal from './Logmodal';
-
-const showlog = true;
+import { getIsLogged } from 'redux/operations/regs';
 
 function Phonebook() {
+  const dispatch = useDispatch();
+  const showlog = dispatch(getIsLogged);
+
   return (
     <>
-      <Logmodal />
       {showlog ? (
-        <div></div>
-      ) : (
         <div className="all-pos">
           <ul className="flexator g-20">
             <li>
@@ -26,6 +26,8 @@ function Phonebook() {
             </li>
           </ul>
         </div>
+      ) : (
+        <Logmodal />
       )}
     </>
   );
