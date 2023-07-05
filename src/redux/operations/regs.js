@@ -3,12 +3,12 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
-const authed = token => {
-  axios.defaults.headers.common.Authorization = `bearer ${token}`;
-};
-const cleared = token => {
-  axios.defaults.headers.common.Authorization = ``;
-};
+// const authed = token => {
+//   axios.defaults.headers.common.Authorization = `bearer ${token}`;
+// };
+// const cleared = token => {
+//   axios.defaults.headers.common.Authorization = ``;
+// };
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
