@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import List from './ContactList';
 import Filter from './Filter';
 import Form from './Form';
@@ -6,8 +6,7 @@ import Logmodal from './Logmodal';
 import { getIsLogged } from 'redux/operations/regs';
 
 function Phonebook() {
-  const dispatch = useDispatch();
-  const showlog = dispatch(getIsLogged);
+  const showlog = useSelector(getIsLogged);
 
   return (
     <>

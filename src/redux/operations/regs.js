@@ -44,4 +44,4 @@ export const authSlice = createSlice({
       })
       .addCase(register.rejected, (state, action) => state),
 });
-export const getIsLogged = state => state.regs.user.isLogged;
+export const getIsLogged = state => state.user.isLogged;
