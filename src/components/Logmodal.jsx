@@ -42,6 +42,7 @@ export default function Logmodal() {
           role="tabpanel"
           aria-labelledby="home-tab"
         >
+          <h2>Login</h2>
           <Login />
         </div>
         <div

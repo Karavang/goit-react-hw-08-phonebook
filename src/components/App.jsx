@@ -3,11 +3,14 @@ import List from './ContactList';
 import Filter from './Filter';
 import Form from './Form';
 import Logmodal from './Logmodal';
-import { getIsLogged } from 'redux/operations/regs';
+import { getIsLogged, getUser } from 'redux/operations/regs';
+import ButtonLogout from './ButtonLogout';
+import { selectUser } from 'redux/operations/selectors';
 
 function Phonebook() {
   const showlog = useSelector(getIsLogged);
-
+  const user = useSelector(getUser);
+  console.log(user);
   return (
     <>
       {showlog ? (
@@ -16,6 +19,7 @@ function Phonebook() {
             <li>
               <h2>Phonebook</h2>
               <Form />
+              <div>Hi,{user.email}</div>
             </li>
 
             <li className="li-contacts">
@@ -24,6 +28,7 @@ function Phonebook() {
               <List />
             </li>
           </ul>
+          <ButtonLogout />
         </div>
       ) : (
         <Logmodal />
