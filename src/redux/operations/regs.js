@@ -4,11 +4,12 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 const authed = token => {
-  axios.defaults.headers.common.Authorization = `bearer ${token}`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   console.log(axios.defaults.headers.common.Authorization);
 };
 const cleared = token => {
   axios.defaults.headers.common.Authorization = ``;
+  console.log(axios.defaults.headers.common.Authorization);
 };
 export const register = createAsyncThunk(
   'auth/register',
@@ -38,7 +39,8 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     const res = await axios.post('/users/logout');
     res();
-    cleared(res.data.token);
+    cleared();
+    this.state.isLogged = false;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
