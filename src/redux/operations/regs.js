@@ -38,7 +38,7 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     const res = await axios.post('/users/logout');
-    res();
+
     cleared();
     this.state.isLogged = false;
   } catch (error) {
@@ -77,8 +77,9 @@ export const authSlice = createSlice({
         console.log(state);
       })
       .addCase(login.rejected, (state, action) => state)
-      .addCase(logout.fulfilled, (state, action) => {
-        console.log(state);
+      .addCase(logout.rejected, (state, action) => {
+        state.user = { name: '', email: '', password: '' };
+        state.token = null;
         state.isLogged = false;
       }),
 });
