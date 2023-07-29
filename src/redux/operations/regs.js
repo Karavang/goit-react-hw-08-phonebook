@@ -37,7 +37,7 @@ export const login = createAsyncThunk(
 );
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    const res = await axios.post('/users/logout');
+    await axios.post('/users/logout');
 
     cleared();
     this.state.isLogged = false;
