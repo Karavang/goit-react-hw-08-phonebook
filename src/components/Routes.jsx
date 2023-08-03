@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Contacts from './Contacts';
 import Phonebook from './App';
 import Login from './Login';
@@ -9,7 +9,6 @@ export default function Router() {
     <>
       <Routes>
         <Route path="/" element={<Phonebook />}>
-          <Route index element={<Navigate to="login" />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Registration />} />
         </Route>
