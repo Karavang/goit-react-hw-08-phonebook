@@ -49,7 +49,7 @@ export default function Form() {
           name="number"
           value={number}
           className="form-control"
-          pattern="^[0-9+-]+$"
+          pattern="^[0-9\s()+-]+$"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           onChange={e => setNumber(e.target.value)}
