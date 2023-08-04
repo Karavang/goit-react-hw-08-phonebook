@@ -11,12 +11,8 @@ function Phonebook() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Здесь вы можете выполнить любые действия, которые необходимо сделать после начала загрузки страницы
-
-    // Пример: Проверка условия и перенаправление на /login, если нужно
     if (isLoading) {
-      // Установите условие в соответствии с вашими требованиями
-      const isLoggedIn = false; // Здесь должна быть логика проверки авторизации пользователя
+      const isLoggedIn = false;
 
       if (!isLoggedIn) {
         navigate('/login');
