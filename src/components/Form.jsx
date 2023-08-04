@@ -11,8 +11,8 @@ export default function Form() {
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    const findContact = contacts.find(contact =>
-      contact.name.toLowerCase().includes(name.toLowerCase())
+    const findContact = contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
     );
 
     if (findContact) {
@@ -35,7 +35,7 @@ export default function Form() {
           name="name"
           value={name}
           className="form-control"
-          pattern="a-zA-Z0-9-"
+          pattern="^[A-Za-z\s]+$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           onChange={e => setName(e.target.value)}
@@ -49,7 +49,7 @@ export default function Form() {
           name="number"
           value={number}
           className="form-control"
-          pattern="a-zA-Z0-9-"
+          pattern="^[0-9+-]+$"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           onChange={e => setNumber(e.target.value)}
