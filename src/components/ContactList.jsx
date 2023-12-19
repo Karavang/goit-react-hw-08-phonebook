@@ -1,24 +1,20 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { deleteContact, getContacts, getFilter } from 'redux/operations/thunks';
 import { MdOutlineDeleteOutline } from 'react-icons/md';
-import { fetchContacts } from 'redux/operations/thunks';
+import {
+  deleteContact,
+  fetchContacts,
+  getContacts,
+} from 'redux/operations/thunks';
 
 export default function List() {
   const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
-  console.log(filter);
+  console.log(contacts);
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
-  const filteredContacts = contacts
-    ? contacts.filter(contact =>
-        contact.name.toLowerCase().includes(filter.toLowerCase())
-      )
-    : [];
 
   const handleDeleteContact = id => {
     dispatch(deleteContact(id));
@@ -27,7 +23,7 @@ export default function List() {
   return (
     <div className="scrollable-list">
       <ul className="listContacts">
-        {filteredContacts.map(({ id, name, number }) => (
+        {contacts.map(({ id, name, number }) => (
           <li key={id} className="li-con">
             <b>{name}</b> - {number}
             <button

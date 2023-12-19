@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'http://localhost:8000';
 
 const authed = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -45,7 +45,22 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-
+export const fetchCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    try {
+      const tokenLS = thunkAPI.getState().regs.token;
+      if (!tokenLS) {
+        return thunkAPI.rejectWithValue('No token');
+      }
+      authed(tokenLS);
+      const { data } = await axios.get('/users/current');
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 export const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -81,6 +96,9 @@ export const authSlice = createSlice({
         state.user = { name: '', email: '', password: '' };
         state.token = null;
         state.isLogged = false;
+      })
+      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+        state.user = action.payload;
       }),
 });
 export const getIsLogged = state => state.regs.isLogged;
