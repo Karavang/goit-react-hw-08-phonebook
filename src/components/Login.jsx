@@ -34,7 +34,7 @@ export default function Login() {
         name="password"
       />
       <button type="submit" className="btn btn-primary add-contact">
-        Enter
+        Войти
       </button>
     </form>
   );
